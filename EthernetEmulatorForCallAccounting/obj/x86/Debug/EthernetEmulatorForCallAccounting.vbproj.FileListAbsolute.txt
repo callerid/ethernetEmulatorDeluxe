@@ -1,0 +1,33 @@
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\bin\Debug\EthernetEmulatorForCallAccounting.exe
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\bin\Debug\EthernetEmulatorForCallAccounting.pdb
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\bin\Debug\EthernetEmulatorForCallAccounting.xml
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmMain.resources
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.Resources.resources
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbproj.GenerateResource.Cache
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.exe
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.xml
+C:\Users\Grant\AppData\Local\Temporary Projects\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.pdb
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmMain.resources
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.Resources.resources
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.exe
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.pdb
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.xml
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.exe
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.xml
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.pdb
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\IPControlsClass.dll
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmUDPRawTraffic.resources
+C:\Users\Grant\Documents\Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbprojResolveAssemblyReference.cache
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.exe
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.pdb
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.xml
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\IPControlsClass.dll
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbprojResolveAssemblyReference.cache
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmMain.resources
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmUDPRawTraffic.resources
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.Resources.resources
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbproj.GenerateResource.Cache
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.exe
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.xml
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.pdb

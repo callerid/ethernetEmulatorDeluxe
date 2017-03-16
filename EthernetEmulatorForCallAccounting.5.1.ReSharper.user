@@ -1,0 +1,62 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:KeyboardHook.vb" caret="1017" fromTop="0" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:ModMain.vb" caret="3997" fromTop="17" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1529" fromTop="14" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.Designer.vb" caret="3945" fromTop="26" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="0" fromTop="0" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="5067" fromTop="29" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="6932" fromTop="28" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="7673" fromTop="31" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="665" fromTop="16" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="5273" fromTop="12" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="896" fromTop="24" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="896" fromTop="6" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="36" fromTop="2" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1733" fromTop="24" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1777" fromTop="26" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="728" fromTop="8" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1945" fromTop="8" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1672" fromTop="27" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1891" fromTop="33" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="5890" fromTop="28" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmUDPRawTraffic.vb" caret="1529" fromTop="14" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="23298" fromTop="24" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="11466" fromTop="21" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="13151" fromTop="29" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="13509" fromTop="31" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="23985" fromTop="31" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="13600" fromTop="33" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="22708" fromTop="26" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="33339" fromTop="34" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="10070" fromTop="26" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="9174" fromTop="5" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:SmartSend.vb" caret="9889" fromTop="22" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="33339" fromTop="15" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="3826" fromTop="16" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="22501" fromTop="16" />
+      <File id="808E3ABA-4585-42E3-BE26-4137E7221FD3/f:frmMain.vb" caret="5067" fromTop="29" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

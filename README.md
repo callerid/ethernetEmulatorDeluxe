@@ -1,1 +1,2 @@
-EthernetEmulatorForCallAccounting
+Ethernet Emulator Deluxe: This tool sends Caller ID data via UDP packets to test Ethernet Caller ID applications. 
+The program emulates all Caller ID records produced by Ethernet connected CallerID.com units.
