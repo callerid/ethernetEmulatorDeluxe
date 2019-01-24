@@ -140,7 +140,7 @@ Module ModMain
 
         For Each myControl In thisForm.Controls
 
-            If (Not myControl Is frmMain.gbProgress) And (Not myControl Is frmMain.lbHelp) And (Not myControl Is frmMain.lbIPAddress) And (Not myControl Is frmMain.lbVersion) And (Not myControl Is frmMain.ipSend) Then
+            If (Not myControl Is frmMain.gbProgress) And (Not myControl Is frmMain.lbHelp) And (Not myControl Is frmMain.lbIPAddress) And (Not myControl Is frmMain.ipSend) Then
 
                 If Not TypeOf myControl Is GroupBox Then
 

@@ -42,9 +42,9 @@
         ' Open traffic window for logging
         frmUDPRawTraffic.Show()
         frmUDPRawTraffic.Hide()
-        
+
         ' Define version number
-        lbVersion.Text = "CallerID.com - V " + Application.ProductVersion.ToString.Substring(0, 3)
+        Text = "Ethernet Emulator Deluxe - V " + Application.ProductVersion.ToString.Substring(0, 3)
 
         ' Disable all fields except type of unit
         toggleFields(Me, False)
@@ -113,6 +113,9 @@
             End If
         Next
 
+        ' Comment below out to default to local computer IP address
+        ipSend.Text = "255.255.255.255"
+
         ' Show version
         Me.Text = "Ethernet Emulator Deluxe - Version " + EthernetEmulatorForCallAccounting.My.Application.Info.Version.ToString
 
@@ -171,12 +174,13 @@
             cbLNum(i).Items.Clear()
 
             ' Add correct items
-            cbLNum(i).Items.Add("800-240-4637   ")
-            cbLNum(i).Items.Add("770-263-7111   ")
-            cbLNum(i).Items.Add("770-263-7278   ")
-            cbLNum(i).Items.Add("OUT-OF-AREA    ")
-            cbLNum(i).Items.Add("PRIVATE        ")
-            cbLNum(i).Items.Add("No-CallerID    ")
+            cbLNum(i).Items.Add("800-240-4637")
+            cbLNum(i).Items.Add("770-263-7111")
+            cbLNum(i).Items.Add("770-263-7278")
+            cbLNum(i).Items.Add("OUT-OF-AREA")
+            cbLNum(i).Items.Add("PRIVATE")
+            cbLNum(i).Items.Add("No-CallerID")
+            cbLNum(i).Items.Add("")
 
         Next
 
@@ -190,12 +194,13 @@
             cbLName(i).Items.Clear()
 
             ' Add correct items
-            cbLName(i).Items.Add("CallerID.com   ")
-            cbLName(i).Items.Add("Atlanta, GA    ")
-            cbLName(i).Items.Add("Smith, John    ")
-            cbLName(i).Items.Add("OUT-OF-AREA    ")
-            cbLName(i).Items.Add("PRIVATE        ")
-            cbLName(i).Items.Add("               ")
+            cbLName(i).Items.Add("CallerID com")
+            cbLName(i).Items.Add("Atlanta, GA")
+            cbLName(i).Items.Add("Smith, John")
+            cbLName(i).Items.Add("OUT-OF-AREA")
+            cbLName(i).Items.Add("PRIVATE")
+            cbLName(i).Items.Add("No-CallerID")
+            cbLName(i).Items.Add("")
 
         Next
 
@@ -822,9 +827,9 @@
         
         '--> Create SmartSend record
         If cbL1AU.SelectedItem IsNot Nothing Then
-            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.SelectedItem.ToString, cbL1Name.SelectedItem.ToString, cbL1AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.Text, cbL1Name.Text, cbL1AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
         Else
-            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.SelectedItem.ToString, cbL1Name.SelectedItem.ToString, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.Text, cbL1Name.Text, "none", cbUnit.SelectedItem.ToString)
         End If
         
         '--> Timing
@@ -852,9 +857,9 @@
 
         '--> Create SmartSend record
         If cbL2AU.SelectedItem IsNot Nothing Then
-            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.SelectedItem.ToString, cbL2Name.SelectedItem.ToString, cbL2AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.Text, cbL2Name.Text, cbL2AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
         Else
-            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.SelectedItem.ToString, cbL2Name.SelectedItem.ToString, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.Text, cbL2Name.Text, "none", cbUnit.SelectedItem.ToString)
         End If
 
         '--> Timing
@@ -882,9 +887,9 @@
 
         '--> Create SmartSend record
         If cbL3AU.SelectedItem IsNot Nothing Then
-            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.SelectedItem.ToString, cbL3Name.SelectedItem.ToString, cbL3AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.Text, cbL3Name.Text, cbL3AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
         Else
-            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.SelectedItem.ToString, cbL3Name.SelectedItem.ToString, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.Text, cbL3Name.Text, "none", cbUnit.SelectedItem.ToString)
         End If
 
         '--> Special Call Accounting possibility
@@ -914,9 +919,9 @@
         If rbETSIFormat.Checked = True Then myFormat = "ETSI"
         '--> Create SmartSend record
         If cbL4AU.SelectedItem IsNot Nothing Then
-            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.SelectedItem.ToString, cbL4Name.SelectedItem.ToString, cbL4AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.Text, cbL4Name.Text, cbL4AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
         Else
-            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.SelectedItem.ToString, cbL4Name.SelectedItem.ToString, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.Text, cbL4Name.Text, "none", cbUnit.SelectedItem.ToString)
         End If
 
         '--> Special Call Accounting possibility
@@ -940,4 +945,22 @@
 #End Region
 
     '----------------------------
+
+#Region "Acceptance Functions"
+
+    Public Sub OnlyPhoneNumbers_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles cbL1Num.KeyPress, cbL2Num.KeyPress, cbL3Num.KeyPress, cbL4Num.KeyPress
+
+        If e.KeyChar <> ControlChars.Back Then
+            e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "-")
+        End If
+
+    End Sub
+
+    Public Sub OnlyValidNames_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles cbL1Name.KeyPress, cbL2Name.KeyPress, cbL3Name.KeyPress, cbL4Name.KeyPress
+
+        ' All chars valid
+
+    End Sub
+
+#End Region
 End Class

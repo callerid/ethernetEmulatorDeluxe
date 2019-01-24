@@ -23,7 +23,6 @@ F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmu
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.pdb
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\EEDeluxe.xml
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\bin\Debug\IPControlsClass.dll
-F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbprojResolveAssemblyReference.cache
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmMain.resources
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.frmUDPRawTraffic.resources
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.Resources.resources
@@ -31,3 +30,9 @@ F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmu
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.exe
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.xml
 F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EEDeluxe.pdb
+C:\Local VS Builds\EthernetEmulatorDeluxe\EEDeluxe.exe
+C:\Local VS Builds\EthernetEmulatorDeluxe\EEDeluxe.pdb
+C:\Local VS Builds\EthernetEmulatorDeluxe\EEDeluxe.xml
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbprojAssemblyReference.cache
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbproj.CoreCompileInputs.cache
+F:\Projects\Visual Studio Projects\EthernetEmulatorForCallAccounting\EthernetEmulatorForCallAccounting\obj\x86\Debug\EthernetEmulatorForCallAccounting.vbproj.CopyComplete

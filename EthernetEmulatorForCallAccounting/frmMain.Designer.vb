@@ -107,7 +107,6 @@ Partial Class frmMain
         Me.cbUnit = New System.Windows.Forms.ComboBox()
         Me.gbUnit = New System.Windows.Forms.GroupBox()
         Me.btnChangeUnit = New System.Windows.Forms.Button()
-        Me.lbVersion = New System.Windows.Forms.Label()
         Me.gbCallAccounting = New System.Windows.Forms.GroupBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -126,6 +125,8 @@ Partial Class frmMain
         Me.ipSend = New IPControlsClass.IPInput()
         Me.lbIPAddress = New System.Windows.Forms.Label()
         Me.lbHelp = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.gbProgress.SuspendLayout()
         CType(Me.dgvL4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvL3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -414,6 +415,8 @@ Partial Class frmMain
         '
         'gbCallSetup
         '
+        Me.gbCallSetup.Controls.Add(Me.Label14)
+        Me.gbCallSetup.Controls.Add(Me.Label6)
         Me.gbCallSetup.Controls.Add(Me.ndLine4Int)
         Me.gbCallSetup.Controls.Add(Me.Label22)
         Me.gbCallSetup.Controls.Add(Me.Label21)
@@ -543,66 +546,66 @@ Partial Class frmMain
         '
         'cbL4Name
         '
-        Me.cbL4Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL4Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL4Name.FormattingEnabled = True
         Me.cbL4Name.Items.AddRange(New Object() {"Answered", "Unanswered"})
         Me.cbL4Name.Location = New System.Drawing.Point(448, 119)
+        Me.cbL4Name.MaxLength = 15
         Me.cbL4Name.Name = "cbL4Name"
         Me.cbL4Name.Size = New System.Drawing.Size(116, 21)
         Me.cbL4Name.TabIndex = 46
         '
         'cbL3Name
         '
-        Me.cbL3Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL3Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL3Name.FormattingEnabled = True
         Me.cbL3Name.Items.AddRange(New Object() {"Answered", "Unanswered"})
         Me.cbL3Name.Location = New System.Drawing.Point(448, 93)
+        Me.cbL3Name.MaxLength = 15
         Me.cbL3Name.Name = "cbL3Name"
         Me.cbL3Name.Size = New System.Drawing.Size(116, 21)
         Me.cbL3Name.TabIndex = 45
         '
         'cbL2Name
         '
-        Me.cbL2Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL2Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL2Name.FormattingEnabled = True
         Me.cbL2Name.Items.AddRange(New Object() {"Answered", "Unanswered"})
         Me.cbL2Name.Location = New System.Drawing.Point(448, 66)
+        Me.cbL2Name.MaxLength = 15
         Me.cbL2Name.Name = "cbL2Name"
         Me.cbL2Name.Size = New System.Drawing.Size(116, 21)
         Me.cbL2Name.TabIndex = 44
         '
         'cbL4Num
         '
-        Me.cbL4Num.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL4Num.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL4Num.FormattingEnabled = True
         Me.cbL4Num.Items.AddRange(New Object() {"706-263-7111", "PRIVATE", "Out-of-Area", "No CallerID"})
         Me.cbL4Num.Location = New System.Drawing.Point(326, 119)
+        Me.cbL4Num.MaxLength = 14
         Me.cbL4Num.Name = "cbL4Num"
         Me.cbL4Num.Size = New System.Drawing.Size(116, 21)
         Me.cbL4Num.TabIndex = 43
         '
         'cbL3Num
         '
-        Me.cbL3Num.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL3Num.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL3Num.FormattingEnabled = True
         Me.cbL3Num.Items.AddRange(New Object() {"706-263-7111", "PRIVATE", "Out-of-Area", "No CallerID"})
         Me.cbL3Num.Location = New System.Drawing.Point(326, 93)
+        Me.cbL3Num.MaxLength = 14
         Me.cbL3Num.Name = "cbL3Num"
         Me.cbL3Num.Size = New System.Drawing.Size(116, 21)
         Me.cbL3Num.TabIndex = 42
         '
         'cbL2Num
         '
-        Me.cbL2Num.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL2Num.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL2Num.FormattingEnabled = True
         Me.cbL2Num.Items.AddRange(New Object() {"706-263-7111", "PRIVATE", "Out-of-Area", "No CallerID"})
         Me.cbL2Num.Location = New System.Drawing.Point(326, 66)
+        Me.cbL2Num.MaxLength = 14
         Me.cbL2Num.Name = "cbL2Num"
         Me.cbL2Num.Size = New System.Drawing.Size(116, 21)
         Me.cbL2Num.TabIndex = 41
@@ -679,11 +682,11 @@ Partial Class frmMain
         '
         'cbL1Name
         '
-        Me.cbL1Name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL1Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL1Name.FormattingEnabled = True
         Me.cbL1Name.Items.AddRange(New Object() {"Answered", "Unanswered"})
         Me.cbL1Name.Location = New System.Drawing.Point(448, 38)
+        Me.cbL1Name.MaxLength = 15
         Me.cbL1Name.Name = "cbL1Name"
         Me.cbL1Name.Size = New System.Drawing.Size(116, 21)
         Me.cbL1Name.TabIndex = 33
@@ -700,11 +703,11 @@ Partial Class frmMain
         '
         'cbL1Num
         '
-        Me.cbL1Num.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbL1Num.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbL1Num.FormattingEnabled = True
         Me.cbL1Num.Items.AddRange(New Object() {"706-263-7111", "PRIVATE", "Out-of-Area", "No CallerID"})
         Me.cbL1Num.Location = New System.Drawing.Point(326, 38)
+        Me.cbL1Num.MaxLength = 14
         Me.cbL1Num.Name = "cbL1Num"
         Me.cbL1Num.Size = New System.Drawing.Size(116, 21)
         Me.cbL1Num.TabIndex = 31
@@ -1099,15 +1102,6 @@ Partial Class frmMain
         Me.btnChangeUnit.Text = "Change Unit"
         Me.btnChangeUnit.UseVisualStyleBackColor = True
         '
-        'lbVersion
-        '
-        Me.lbVersion.AutoSize = True
-        Me.lbVersion.Location = New System.Drawing.Point(849, 618)
-        Me.lbVersion.Name = "lbVersion"
-        Me.lbVersion.Size = New System.Drawing.Size(67, 13)
-        Me.lbVersion.TabIndex = 9
-        Me.lbVersion.Text = "CallerID.com"
-        '
         'gbCallAccounting
         '
         Me.gbCallAccounting.Controls.Add(Me.Label30)
@@ -1140,7 +1134,7 @@ Partial Class frmMain
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(301, 26)
         Me.Label30.TabIndex = 67
-        Me.Label30.Text = "When a call is complete, a call accounting record is generated" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "with additional d" & _
+        Me.Label30.Text = "When a call is complete, a call accounting record is generated" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "with additional d" &
     "ata pertaining to the phone call."
         '
         'Label26
@@ -1309,21 +1303,40 @@ Partial Class frmMain
         Me.lbHelp.Name = "lbHelp"
         Me.lbHelp.Size = New System.Drawing.Size(522, 32)
         Me.lbHelp.TabIndex = 13
-        Me.lbHelp.Text = "This tool generates the exact same output as any CallerID.com Ethernet connected " & _
-    "unit." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "It emulates each of the 3 standard types of units CallerID.com manufactur" & _
+        Me.lbHelp.Text = "This tool generates the exact same output as any CallerID.com Ethernet connected " &
+    "unit." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "It emulates each of the 3 standard types of units CallerID.com manufactur" &
     "es."
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(323, 143)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(118, 13)
+        Me.Label6.TabIndex = 55
+        Me.Label6.Text = "Insert up to 14 numbers"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(446, 143)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(128, 13)
+        Me.Label14.TabIndex = 56
+        Me.Label14.Text = "Insert up to 15 characters"
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(973, 640)
+        Me.ClientSize = New System.Drawing.Size(973, 639)
         Me.Controls.Add(Me.lbHelp)
         Me.Controls.Add(Me.lbIPAddress)
         Me.Controls.Add(Me.ipSend)
         Me.Controls.Add(Me.gbCallAccounting)
-        Me.Controls.Add(Me.lbVersion)
         Me.Controls.Add(Me.gbUnit)
         Me.Controls.Add(Me.gbParameters)
         Me.Controls.Add(Me.gbTiming)
@@ -1412,7 +1425,6 @@ Partial Class frmMain
     Friend WithEvents cbL4AU As System.Windows.Forms.ComboBox
     Friend WithEvents cbL3AU As System.Windows.Forms.ComboBox
     Friend WithEvents cbL2AU As System.Windows.Forms.ComboBox
-    Friend WithEvents cbL4Num As System.Windows.Forms.ComboBox
     Friend WithEvents cbL3Num As System.Windows.Forms.ComboBox
     Friend WithEvents cbL2Num As System.Windows.Forms.ComboBox
     Friend WithEvents cbL4Name As System.Windows.Forms.ComboBox
@@ -1424,7 +1436,6 @@ Partial Class frmMain
     Friend WithEvents btnParametersEdit As System.Windows.Forms.Button
     Friend WithEvents btnTimingEdit As System.Windows.Forms.Button
     Friend WithEvents btnTimingContinue As System.Windows.Forms.Button
-    Friend WithEvents lbVersion As System.Windows.Forms.Label
     Friend WithEvents pbLine4 As System.Windows.Forms.ProgressBar
     Friend WithEvents pbLine3 As System.Windows.Forms.ProgressBar
     Friend WithEvents pbLine2 As System.Windows.Forms.ProgressBar
@@ -1470,5 +1481,7 @@ Partial Class frmMain
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents btnRawData As System.Windows.Forms.Button
-
+    Friend WithEvents cbL4Num As ComboBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label6 As Label
 End Class
