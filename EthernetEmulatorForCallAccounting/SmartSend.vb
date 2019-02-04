@@ -132,8 +132,6 @@
     ' Send sub - thread sub
     Public Sub send()
 
-
-
         ' Start new data grid view row
         Dim cleared As Boolean = False
 
@@ -153,6 +151,7 @@
         End If
 
         ' If USA/standard format
+        Dim sendDateTime = DateTime.Now
 
         If callType = "Inbound" Then
 
@@ -208,7 +207,7 @@
 
                 ' Create Inbound Start Record
                 Dim inboundStartRecord As String = ""
-                inboundStartRecord = line + " I S 0000 G A1 " + getDateShort() + " " + number + " " + name
+                inboundStartRecord = line + " I S 0000 G A1 " + getDateShort(sendDateTime) + " " + number + " " + name
 
                 ' Send Inbound Start
                 '--> Connect
@@ -325,7 +324,7 @@
                     Case 3
                         duration = "0" + duration
                 End Select
-                inboundEndRecord = line + " I E " + duration + " G A1 " + getDateShort() + " " + number + " " + name
+                inboundEndRecord = line + " I E " + duration + " G A1 " + getDateShort(sendDateTime) + " " + number + " " + name
 
                 ' Send End Record
                 '--> Connect
@@ -405,7 +404,7 @@
                 End Select
 
                 ' Create call accounting record
-                Dim callAccountingRecord As String = line + " I C " + duration + " G A1 " + getDateShort() + " " + number + " " + name + " " + timeBeforeAnswer + " " + timeOnHold + " " + sipCode + " " + description
+                Dim callAccountingRecord As String = line + " I C " + duration + " G A1 " + getDateShort(sendDateTime) + " " + number + " " + name + " " + timeBeforeAnswer + " " + timeOnHold + " " + sipCode + " " + description
 
                 ' Send call accounting record
                 '--> Connect
@@ -481,7 +480,7 @@
 
                 ' Create Inbound Start Record
                 Dim outboundStartRecord As String = ""
-                outboundStartRecord = line + " O S 0000 G A1 " + getDateShort() + " " + number + " " + name
+                outboundStartRecord = line + " O S 0000 G A1 " + getDateShort(sendDateTime) + " " + number + " " + name
 
                 ' Send Inbound Start
                 '--> Connect
@@ -566,7 +565,7 @@
                     Case 3
                         duration = "0" + duration
                 End Select
-                outboundEndRecord = line + " O E " + duration + " G A1 " + getDateShort() + " " + number + " " + name
+                outboundEndRecord = line + " O E " + duration + " G A1 " + getDateShort(sendDateTime) + " " + number + " " + name
 
                 ' Send End Record
                 '--> Connect
@@ -646,7 +645,7 @@
                 End Select
 
                 ' Create call accounting record
-                Dim callAccountingRecord As String = line + " O C " + duration + " G A1 " + getDateShort() + " " + number + " " + name + " " + timeBeforeAnswer + " " + timeOnHold + " " + sipCode + " " + description
+                Dim callAccountingRecord As String = line + " O C " + duration + " G A1 " + getDateShort(sendDateTime) + " " + number + " " + name + " " + timeBeforeAnswer + " " + timeOnHold + " " + sipCode + " " + description
 
                 ' Send call accounting record
                 '--> Connect

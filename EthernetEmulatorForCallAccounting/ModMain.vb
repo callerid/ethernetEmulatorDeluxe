@@ -186,11 +186,22 @@ Module ModMain
         Return Format(Date.Now, "MM/dd hh:mm tt")
     End Function
 
+    ' Return short date in format MM/dd hh:mm tt
+    Public Function getDateShort(d As DateTime) As String
+        Return Format(d, "MM/dd hh:mm tt")
+    End Function
+
     ' Return long date in format MM/dd HH:mm:ss
     Public Function getDateLong() As String
         Return Format(Date.Now, "MM/dd HH:mm:ss")
     End Function
-    
+
+    ' Return long date in format MM/dd HH:mm:ss
+    Public Function getDateLong(d As DateTime) As String
+        Return Format(d, "MM/dd HH:mm:ss")
+    End Function
+
+
 #End Region
 
     '------------------------------------------------------------------------------------
