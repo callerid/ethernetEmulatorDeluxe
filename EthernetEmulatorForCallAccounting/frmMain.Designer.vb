@@ -46,6 +46,8 @@ Partial Class frmMain
         Me.rbUSAFormat = New System.Windows.Forms.RadioButton()
         Me.btnFormatContinue = New System.Windows.Forms.Button()
         Me.gbCallSetup = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.ndLine4Int = New System.Windows.Forms.NumericUpDown()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -98,6 +100,7 @@ Partial Class frmMain
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ndInboundStartOff = New System.Windows.Forms.NumericUpDown()
         Me.gbParameters = New System.Windows.Forms.GroupBox()
+        Me.ckbDups = New System.Windows.Forms.CheckBox()
         Me.lbSEB = New System.Windows.Forms.Label()
         Me.lbDetailed = New System.Windows.Forms.Label()
         Me.btnParametersEdit = New System.Windows.Forms.Button()
@@ -125,8 +128,6 @@ Partial Class frmMain
         Me.ipSend = New IPControlsClass.IPInput()
         Me.lbIPAddress = New System.Windows.Forms.Label()
         Me.lbHelp = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.gbProgress.SuspendLayout()
         CType(Me.dgvL4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvL3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -461,6 +462,26 @@ Partial Class frmMain
         Me.gbCallSetup.TabIndex = 2
         Me.gbCallSetup.TabStop = False
         Me.gbCallSetup.Text = "Call Setup"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(446, 143)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(128, 13)
+        Me.Label14.TabIndex = 56
+        Me.Label14.Text = "Insert up to 15 characters"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(323, 143)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(118, 13)
+        Me.Label6.TabIndex = 55
+        Me.Label6.Text = "Insert up to 14 numbers"
         '
         'ndLine4Int
         '
@@ -990,6 +1011,7 @@ Partial Class frmMain
         '
         'gbParameters
         '
+        Me.gbParameters.Controls.Add(Me.ckbDups)
         Me.gbParameters.Controls.Add(Me.lbSEB)
         Me.gbParameters.Controls.Add(Me.lbDetailed)
         Me.gbParameters.Controls.Add(Me.btnParametersEdit)
@@ -1007,6 +1029,17 @@ Partial Class frmMain
         Me.gbParameters.TabIndex = 4
         Me.gbParameters.TabStop = False
         Me.gbParameters.Text = "Parameter Setup"
+        '
+        'ckbDups
+        '
+        Me.ckbDups.AutoSize = True
+        Me.ckbDups.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckbDups.Location = New System.Drawing.Point(16, 121)
+        Me.ckbDups.Name = "ckbDups"
+        Me.ckbDups.Size = New System.Drawing.Size(123, 30)
+        Me.ckbDups.TabIndex = 12
+        Me.ckbDups.Text = "Send 8 duplicates " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for Wireless Devices"
+        Me.ckbDups.UseVisualStyleBackColor = True
         '
         'lbSEB
         '
@@ -1307,26 +1340,6 @@ Partial Class frmMain
     "unit." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "It emulates each of the 3 standard types of units CallerID.com manufactur" &
     "es."
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(323, 143)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(118, 13)
-        Me.Label6.TabIndex = 55
-        Me.Label6.Text = "Insert up to 14 numbers"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(446, 143)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(128, 13)
-        Me.Label14.TabIndex = 56
-        Me.Label14.Text = "Insert up to 15 characters"
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1484,4 +1497,5 @@ Partial Class frmMain
     Friend WithEvents cbL4Num As ComboBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents ckbDups As CheckBox
 End Class

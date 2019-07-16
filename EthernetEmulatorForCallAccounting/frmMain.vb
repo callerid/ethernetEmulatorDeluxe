@@ -156,10 +156,12 @@
 
             ' Add correct items
             cbLAU(i).Items.Add("Answered")
-            cbLAU(i).Items.Add("Unanswered")
+            If cbDetailed.SelectedItem = "On" Then
+                cbLAU(i).Items.Add("Unanswered")
+            End If
             cbLAU(i).SelectedIndex = 0
 
-            If cbDetailed.SelectedItem = "Off" Then
+            If cbDetailed.SelectedItem = "Off" Or cbDetailed.Text = "Off" Then
                 cbLAU(i).Enabled = False
             End If
         Next
@@ -186,6 +188,78 @@
 
     End Sub
 
+    Private Sub PopulateComboBoxWithNumbers(cb As ComboBox, include_dashes As Boolean, outbound As Boolean)
+
+        If outbound Then
+
+            Select Case cb.Name
+                Case "cbL1Num"
+                    cbL1Name.Enabled = False
+                Case "cbL2Num"
+                    cbL2Name.Enabled = False
+                Case "cbL3Num"
+                    cbL3Name.Enabled = False
+                Case "cbL4Num"
+                    cbL4Name.Enabled = False
+            End Select
+
+        Else
+
+            Select Case cb.Name
+                Case "cbL1Num"
+                    cbL1Name.Enabled = True
+                Case "cbL2Num"
+                    cbL2Name.Enabled = True
+                Case "cbL3Num"
+                    cbL3Name.Enabled = True
+                Case "cbL4Num"
+                    cbL4Name.Enabled = True
+            End Select
+
+        End If
+
+        If include_dashes And Not outbound Then
+
+            cb.Items.Clear()
+
+            cb.Items.Add("800-240-4637")
+            cb.Items.Add("770-263-7111")
+            cb.Items.Add("770-263-7278")
+
+            If outbound Then
+                cb.SelectedIndex = 0
+                Return
+            End If
+
+            cb.Items.Add("OUT-OF-AREA")
+            cb.Items.Add("PRIVATE")
+            cb.Items.Add("No-CallerID")
+            cb.Items.Add("")
+            cb.SelectedIndex = 0
+
+        Else
+
+            cb.Items.Clear()
+
+            cb.Items.Add("8002404637")
+            cb.Items.Add("7702637111")
+            cb.Items.Add("7702637278")
+
+            If outbound Then
+                cb.SelectedIndex = 0
+                Return
+            End If
+
+            cb.Items.Add("OUTOFAREA")
+            cb.Items.Add("PRIVATE")
+            cb.Items.Add("NoCallerID")
+            cb.Items.Add("")
+            cb.SelectedIndex = 0
+
+        End If
+
+    End Sub
+
     Private Sub populateName()
 
         For i = 1 To 4
@@ -194,7 +268,7 @@
             cbLName(i).Items.Clear()
 
             ' Add correct items
-            cbLName(i).Items.Add("CallerID com")
+            cbLName(i).Items.Add("CallerID.com")
             cbLName(i).Items.Add("Atlanta, GA")
             cbLName(i).Items.Add("Smith, John")
             cbLName(i).Items.Add("OUT-OF-AREA")
@@ -531,10 +605,64 @@
         Else
             ckbCallAccounting.Enabled = False
         End If
-        
+
+        If cbUnit.SelectedItem = "Basic" Then
+
+            ' Disable changing unit
+            cbUnit.Enabled = False
+
+            ' Un-highlight unit type selection
+            highlightObject(gbParameters, False)
+
+            ' Enable format group
+            toggleGroup(gbParameters, True)
+            btnFormatEdit.Enabled = False
+
+            ' Switch to format group
+            highlightObject(gbParameters, True)
+
+            ckbOutboundOn.Enabled = False
+            ckbCallAccounting.Enabled = False
+            cbDetailed.Enabled = False
+            cbSEB.Enabled = False
+            btnParametersEdit.Enabled = False
+            cbDetailed.SelectedIndex = 1
+            cbSEB.SelectedIndex = 0
+
+        End If
+
     End Sub
 
     Private Sub btnParameterContinue_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnParameterContinue.Click
+
+        If cbUnit.SelectedItem = "Basic" Then
+
+            ' Disable changing unit
+            cbUnit.Enabled = False
+            btnParametersEdit.Enabled = True
+
+            ' Un-highlight unit type selection
+            highlightObject(gbParameters, False)
+
+            ' Enable format group
+            toggleGroup(gbFormat, True)
+            btnFormatEdit.Enabled = False
+            btnParameterContinue.Enabled = False
+
+            ' Switch to format group
+            highlightObject(gbFormat, True)
+
+            ' Populate combo boxes
+            If cbDetailed.SelectedItem.ToString = "On" Then
+                populateAnsweredUnanswered()
+            End If
+            populateInboundOutbound(ckbOutboundOn.Checked)
+
+            populateAnsweredUnanswered()
+
+            Return
+
+        End If
 
         If cbDetailed.SelectedItem.ToString = "On" Then
 
@@ -647,29 +775,22 @@
                 cbUnit.Enabled = False
 
                 ' Un-highlight unit type selection
-                highlightObject(gbUnit, False)
+                highlightObject(gbParameters, False)
 
-                ' Enable certain parameters
-                ckbOutboundOn.Checked = False
+                ' Enable format group
+                toggleGroup(gbParameters, True)
+                btnFormatEdit.Enabled = False
+
+                ' Switch to format group
+                highlightObject(gbParameters, True)
+
                 ckbOutboundOn.Enabled = False
-                ckbCallAccounting.Checked = False
                 ckbCallAccounting.Enabled = False
-                cbDetailed.SelectedItem = "Off"
                 cbDetailed.Enabled = False
-                cbSEB.SelectedItem = "Start"
                 cbSEB.Enabled = False
-                btnChangeUnit.Enabled = True
-
-                ' Enable Call setup group box
-                toggleGroup(gbCallSetup, True)
-                toggleGroup(gbProgress, True)
-
-                ' Populate call setup
-                populateInboundOutbound(False)
-                populateAnsweredUnanswered()
-
-                ' Highlight call setup
-                highlightObject(gbCallSetup, True)
+                btnParametersEdit.Enabled = False
+                cbDetailed.SelectedIndex = 1
+                cbSEB.SelectedIndex = 0
 
             Case "Deluxe"
 
@@ -755,7 +876,34 @@
             highlightObject(gbCallSetup, True)
 
         End If
-        
+
+        PopulateComboBoxWithNumbers(cbL1Num, Not rbETSIFormat.Checked, cbL1IO.Text.ToLower().Contains("outbound"))
+        PopulateComboBoxWithNumbers(cbL2Num, Not rbETSIFormat.Checked, cbL2IO.Text.ToLower().Contains("outbound"))
+        PopulateComboBoxWithNumbers(cbL3Num, Not rbETSIFormat.Checked, cbL3IO.Text.ToLower().Contains("outbound"))
+        PopulateComboBoxWithNumbers(cbL4Num, Not rbETSIFormat.Checked, cbL4IO.Text.ToLower().Contains("outbound"))
+
+        If (cbL1Num.Items.Count > 0) Then
+            cbL1Num.SelectedIndex = 0
+        End If
+
+        If (cbL2Num.Items.Count > 1) Then
+            cbL2Num.SelectedIndex = 1
+        Else
+            cbL2Num.SelectedIndex = 0
+        End If
+
+        If (cbL3Num.Items.Count > 2) Then
+            cbL3Num.SelectedIndex = 2
+        Else
+            cbL3Num.SelectedIndex = 0
+        End If
+
+        If (cbL4Num.Items.Count > 3) Then
+            cbL4Num.SelectedIndex = 3
+        Else
+            cbL4Num.SelectedIndex = 0
+        End If
+
     End Sub
 
     Private Sub btnFormatEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFormatEdit.Click
@@ -811,6 +959,25 @@
 
     End Sub
 
+    Private Sub cbL_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbL1IO.SelectedIndexChanged, cbL2IO.SelectedIndexChanged, cbL3IO.SelectedIndexChanged, cbL4IO.SelectedIndexChanged
+
+        Dim cb As ComboBox = DirectCast(sender, ComboBox)
+        Dim cb_to_edit As ComboBox = cbL1Num
+
+        If cb.Name.Contains("L1") Then
+            cb_to_edit = cbL1Num
+        ElseIf cb.Name.Contains("L2") Then
+            cb_to_edit = cbL2Num
+        ElseIf cb.Name.Contains("L3") Then
+            cb_to_edit = cbL3Num
+        ElseIf cb.Name.Contains("L4") Then
+            cb_to_edit = cbL4Num
+        End If
+
+        PopulateComboBoxWithNumbers(cb_to_edit, Not rbETSIFormat.Checked, cb.Text.ToLower().Contains("outbound"))
+
+    End Sub
+
 #End Region
 
     '----------------------------
@@ -827,9 +994,9 @@
         
         '--> Create SmartSend record
         If cbL1AU.SelectedItem IsNot Nothing Then
-            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.Text, cbL1Name.Text, cbL1AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.Text, cbL1Name.Text, cbL1AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString, ckbDups.Checked)
         Else
-            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.Text, cbL1Name.Text, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine1 = New SmartSend("1", myFormat, cbL1IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL1Num.Text, cbL1Name.Text, "none", cbUnit.SelectedItem.ToString, ckbDups.Checked)
         End If
         
         '--> Timing
@@ -857,9 +1024,9 @@
 
         '--> Create SmartSend record
         If cbL2AU.SelectedItem IsNot Nothing Then
-            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.Text, cbL2Name.Text, cbL2AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.Text, cbL2Name.Text, cbL2AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString, ckbDups.Checked)
         Else
-            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.Text, cbL2Name.Text, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine2 = New SmartSend("2", myFormat, cbL2IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL2Num.Text, cbL2Name.Text, "none", cbUnit.SelectedItem.ToString, ckbDups.Checked)
         End If
 
         '--> Timing
@@ -887,9 +1054,9 @@
 
         '--> Create SmartSend record
         If cbL3AU.SelectedItem IsNot Nothing Then
-            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.Text, cbL3Name.Text, cbL3AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.Text, cbL3Name.Text, cbL3AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString, ckbDups.Checked)
         Else
-            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.Text, cbL3Name.Text, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine3 = New SmartSend("3", myFormat, cbL3IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL3Num.Text, cbL3Name.Text, "none", cbUnit.SelectedItem.ToString, ckbDups.Checked)
         End If
 
         '--> Special Call Accounting possibility
@@ -919,9 +1086,9 @@
         If rbETSIFormat.Checked = True Then myFormat = "ETSI"
         '--> Create SmartSend record
         If cbL4AU.SelectedItem IsNot Nothing Then
-            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.Text, cbL4Name.Text, cbL4AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString)
+            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.Text, cbL4Name.Text, cbL4AU.SelectedItem.ToString, cbUnit.SelectedItem.ToString, ckbDups.Checked)
         Else
-            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.Text, cbL4Name.Text, "none", cbUnit.SelectedItem.ToString)
+            smartSendLine4 = New SmartSend(ndLine4Int.Value.ToString, myFormat, cbL4IO.SelectedItem.ToString, cbDetailed.SelectedItem.ToString, ckbCallAccounting.Checked, cbSEB.SelectedItem.ToString, cbL4Num.Text, cbL4Name.Text, "none", cbUnit.SelectedItem.ToString, ckbDups.Checked)
         End If
 
         '--> Special Call Accounting possibility
@@ -949,6 +1116,25 @@
 #Region "Acceptance Functions"
 
     Public Sub OnlyPhoneNumbers_KeyPress(sender As System.Object, e As KeyPressEventArgs) Handles cbL1Num.KeyPress, cbL2Num.KeyPress, cbL3Num.KeyPress, cbL4Num.KeyPress
+
+        Dim outbound As Boolean = False
+        Select Case DirectCast(sender, ComboBox).Name
+            Case "cbL1Num"
+                outbound = cbL1IO.Text = "Outbound"
+            Case "cbL2Num"
+                outbound = cbL2IO.Text = "Outbound"
+            Case "cbL3Num"
+                outbound = cbL3IO.Text = "Outbound"
+            Case "cbL4Num"
+                outbound = cbL4IO.Text = "Outbound"
+        End Select
+
+        If e.KeyChar <> ControlChars.Back Then
+            If rbETSIFormat.Checked Or outbound Then
+                e.Handled = Not Char.IsDigit(e.KeyChar)
+                Return
+            End If
+        End If
 
         If e.KeyChar <> ControlChars.Back Then
             e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = "-")

@@ -36,7 +36,35 @@ Module ModMain
     End Sub
 
     ' Sends message string
-    Public Sub udpSendMessage(ByVal myMessage As String)
+    Public Sub udpSendMessageReplaceUnitNumber(ByVal myMessage As String)
+
+        Try
+            ' Declare local variables
+            Dim dataToSend() As Byte
+
+            ' Encode message
+            dataToSend = Encoding.ASCII.GetBytes(myMessage)
+
+            dataToSend(5) = 0
+            dataToSend(6) = 0
+            dataToSend(7) = 0
+            dataToSend(8) = 0
+            dataToSend(9) = 0
+            dataToSend(10) = 1
+
+            ' Send message
+            myUdpClient.Send(dataToSend, dataToSend.Length)
+
+        Catch ex As Exception
+
+            MsgBox("Exceptions: ", ex.ToString, "Exception Thrown")
+
+        End Try
+
+    End Sub
+
+    ' Sends message string
+    Public Sub udpSendMessageSimple(ByVal myMessage As String)
 
         Try
             ' Declare local variables

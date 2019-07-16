@@ -24,6 +24,7 @@
     Private number As String
     Private name As String
     Private answered As String
+    Private dups As Integer
     '--> Call Accounting
     Public caTimeOnHold As String
     Public caTimeB4Answer As String
@@ -44,7 +45,7 @@
     '-----------------------------------------------------
 
     ' Setup new Smart Send record to be queued to send on thread
-    Public Sub New(ByVal inLine As String, ByVal inFormat As String, ByVal inCallType As String, ByVal inDetailed As String, ByVal inCallAccounting As Boolean, ByVal inStartEndBoth As String, ByVal inNumber As String, ByVal inName As String, ByVal inAnswered As String, ByVal inUnitType As String)
+    Public Sub New(ByVal inLine As String, ByVal inFormat As String, ByVal inCallType As String, ByVal inDetailed As String, ByVal inCallAccounting As Boolean, ByVal inStartEndBoth As String, ByVal inNumber As String, ByVal inName As String, ByVal inAnswered As String, ByVal inUnitType As String, inDups As Boolean)
 
         '------------------------------------
         ' Aquire Variables
@@ -70,8 +71,10 @@
         ' Get number
         number = inNumber
 
+        dups = inDups
+
         If format = "ETSI" Then
-            number = number.Replace("-", "")
+            number = number.Replace("-", "").PadRight(14, " ")
         Else
             number = number.PadRight(14, " ")
         End If
@@ -81,7 +84,7 @@
 
         ' Get unit type
         unitType = inUnitType
-        
+
         ' Get answered/unanswered variable
         answered = inAnswered
 
@@ -177,7 +180,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + ringRecord)
+                udpSendMessageReplaceUnitNumber(header + ringRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + ringRecord, Color.Red)
 
                 '--> Disconnect
@@ -187,7 +190,7 @@
                 If Not unitType = "Vertex" Then
                     waitFor(3000)
                 End If
-                
+
                 ' Update progress bar
                 myProgressBarValue += 1
                 RaiseEvent updateProgressBars(Me)
@@ -214,7 +217,21 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + inboundStartRecord)
+                If dups Then
+
+                    For i = 1 To 8
+
+                        udpSendMessageReplaceUnitNumber(header + inboundStartRecord)
+                        waitFor(40)
+
+                    Next
+
+                Else
+
+                    udpSendMessageReplaceUnitNumber(header + inboundStartRecord)
+
+                End If
+
                 RaiseEvent updateTraffic(Integer.Parse(line), header + inboundStartRecord, Color.Green)
 
                 '--> Disconnect
@@ -248,7 +265,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + offHookRecord)
+                udpSendMessageReplaceUnitNumber(header + offHookRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + offHookRecord, Color.Black)
 
                 '--> Disconnect
@@ -278,7 +295,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + onHookRecord)
+                udpSendMessageReplaceUnitNumber(header + onHookRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + onHookRecord, Color.Black)
 
                 '--> Disconnect
@@ -308,7 +325,7 @@
 
                 ' If detailed off and answered is true
                 If detailed = "Off" And answered = "Answered" Then
-                    duration = "0123"
+                    duration = "0073"
                 ElseIf detailed = "On" And answered = "Answered" Then
                     duration = timeInboundOffOn
                 Else
@@ -331,7 +348,21 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + inboundEndRecord)
+                If dups Then
+
+                    For i = 1 To 8
+
+                        udpSendMessageReplaceUnitNumber(header + inboundEndRecord)
+                        waitFor(40)
+
+                    Next
+
+                Else
+
+                    udpSendMessageReplaceUnitNumber(header + inboundEndRecord)
+
+                End If
+
                 RaiseEvent updateTraffic(Integer.Parse(line), header + inboundEndRecord, Color.Green)
 
                 '--> Disconnect
@@ -411,7 +442,21 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + callAccountingRecord)
+                If dups Then
+
+                    For i = 1 To 8
+
+                        udpSendMessageReplaceUnitNumber(header + callAccountingRecord)
+                        waitFor(40)
+
+                    Next
+
+                Else
+
+                    udpSendMessageReplaceUnitNumber(header + callAccountingRecord)
+
+                End If
+
                 RaiseEvent updateTraffic(Integer.Parse(line), header + callAccountingRecord, Color.DarkGoldenrod)
 
                 '--> Disconnect
@@ -451,7 +496,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + offHookRecord)
+                udpSendMessageReplaceUnitNumber(header + offHookRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + offHookRecord, Color.Black)
 
                 '--> Disconnect
@@ -487,7 +532,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + outboundStartRecord)
+                udpSendMessageReplaceUnitNumber(header + outboundStartRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + outboundStartRecord, Color.Blue)
 
                 '--> Disconnect
@@ -522,7 +567,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + onHookRecord)
+                udpSendMessageReplaceUnitNumber(header + onHookRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + onHookRecord, Color.Black)
 
                 '--> Disconnect
@@ -572,7 +617,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + outboundEndRecord)
+                udpSendMessageReplaceUnitNumber(header + outboundEndRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + outboundEndRecord, Color.Blue)
 
                 '--> Disconnect
@@ -652,7 +697,7 @@
                 udpConnect(boxIP, boxPort)
 
                 '--> Send
-                udpSendMessage(header + callAccountingRecord)
+                udpSendMessageReplaceUnitNumber(header + callAccountingRecord)
                 RaiseEvent updateTraffic(Integer.Parse(line), header + callAccountingRecord, Color.DarkGoldenrod)
 
                 '--> Disconnect
