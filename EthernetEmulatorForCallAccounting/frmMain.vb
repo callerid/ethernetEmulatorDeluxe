@@ -52,6 +52,8 @@
         cbUnit.SelectedIndex = 0
         highlightObject(gbUnit, True)
 
+        ckbEnableLoops_CheckedChanged(New Object, New EventArgs)
+
         ' Associate arrays to objects
         ' --> Inbound/outbound combo boxes
         cbLIO(1) = cbL1IO
@@ -1148,5 +1150,44 @@
 
     End Sub
 
+    Private Sub btnLoop_Click(sender As Object, e As EventArgs) Handles btnLoop.Click
+
+        Dim line As Integer = 1
+        For i = 1 To ndLoops.Value
+
+            Select Case line
+
+                Case 1
+                    cbL1Name.Text = "Count AT: " + i.ToString()
+                    btnL1Send_Click(New Object, New EventArgs)
+                Case 2
+                    cbL2Name.Text = "Count AT: " + i.ToString()
+                    btnL2Send_Click(New Object, New EventArgs)
+                Case 3
+                    cbL3Name.Text = "Count AT: " + i.ToString()
+                    btnL3Send_Click(New Object, New EventArgs)
+                Case 4
+                    cbL4Name.Text = "Count AT: " + i.ToString()
+                    btnL4Send_Click(New Object, New EventArgs)
+            End Select
+
+            line += 1
+            If line > 4 Then
+                line = 1
+            End If
+
+            waitFor(convertMinutesToMiliseconds(ndMins.Value))
+
+        Next i
+
+    End Sub
+
+    Private Sub ckbEnableLoops_CheckedChanged(sender As Object, e As EventArgs) Handles ckbEnableLoops.CheckedChanged
+
+        panLoops.Visible = ckbEnableLoops.Checked
+
+    End Sub
+
 #End Region
+
 End Class

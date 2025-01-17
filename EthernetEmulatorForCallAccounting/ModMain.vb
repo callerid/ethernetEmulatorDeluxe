@@ -170,6 +170,46 @@ Module ModMain
 
             If (Not myControl Is frmMain.gbProgress) And (Not myControl Is frmMain.lbHelp) And (Not myControl Is frmMain.lbIPAddress) And (Not myControl Is frmMain.ipSend) Then
 
+                If TypeOf myControl Is Button Then
+
+                    Dim btn As Button = myControl
+
+                    If btn.Name = "btnLoop" Then
+                        Continue For
+                    End If
+
+                End If
+
+                If TypeOf myControl Is Panel Then
+
+                    Dim pan As Panel = myControl
+
+                    If pan.Name = "panLoops" Then
+                        Continue For
+                    End If
+
+                End If
+
+                If TypeOf myControl Is CheckBox Then
+
+                    Dim ckb As CheckBox = myControl
+
+                    If ckb.Name = "ckbEnableLoops" Then
+                        Continue For
+                    End If
+
+                End If
+
+                If TypeOf myControl Is NumericUpDown Then
+
+                    Dim nd As NumericUpDown = myControl
+
+                    If nd.Name = "ndLoops" Then
+                        Continue For
+                    End If
+
+                End If
+
                 If Not TypeOf myControl Is GroupBox Then
 
                     If enable = True Then
@@ -197,6 +237,12 @@ Module ModMain
         Next
 
     End Sub
+
+    Public Function convertMinutesToMiliseconds(mins As Integer)
+
+        Return mins * 60 * 1000
+
+    End Function
 
     ' Loops for a specificied period of time (milliseconds)
     Public Sub waitFor(ByVal interval As Integer)

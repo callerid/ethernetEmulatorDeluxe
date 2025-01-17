@@ -128,6 +128,13 @@ Partial Class frmMain
         Me.ipSend = New IPControlsClass.IPInput()
         Me.lbIPAddress = New System.Windows.Forms.Label()
         Me.lbHelp = New System.Windows.Forms.Label()
+        Me.btnLoop = New System.Windows.Forms.Button()
+        Me.ndLoops = New System.Windows.Forms.NumericUpDown()
+        Me.ndMins = New System.Windows.Forms.NumericUpDown()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.ckbEnableLoops = New System.Windows.Forms.CheckBox()
+        Me.panLoops = New System.Windows.Forms.Panel()
         Me.gbProgress.SuspendLayout()
         CType(Me.dgvL4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvL3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,6 +155,9 @@ Partial Class frmMain
         CType(Me.ndL3TBA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ndL4TimeOnHold, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ndL3TimeOnHold, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ndLoops, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ndMins, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panLoops.SuspendLayout()
         Me.SuspendLayout()
         '
         'gbProgress
@@ -1340,12 +1350,89 @@ Partial Class frmMain
     "unit." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "It emulates each of the 3 standard types of units CallerID.com manufactur" &
     "es."
         '
+        'btnLoop
+        '
+        Me.btnLoop.Location = New System.Drawing.Point(352, 5)
+        Me.btnLoop.Name = "btnLoop"
+        Me.btnLoop.Size = New System.Drawing.Size(72, 23)
+        Me.btnLoop.TabIndex = 13
+        Me.btnLoop.Text = "Send Loops"
+        Me.btnLoop.UseVisualStyleBackColor = True
+        '
+        'ndLoops
+        '
+        Me.ndLoops.Location = New System.Drawing.Point(267, 8)
+        Me.ndLoops.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
+        Me.ndLoops.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ndLoops.Name = "ndLoops"
+        Me.ndLoops.Size = New System.Drawing.Size(56, 20)
+        Me.ndLoops.TabIndex = 14
+        Me.ndLoops.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ndLoops.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.ndLoops.Value = New Decimal(New Integer() {500, 0, 0, 0})
+        '
+        'ndMins
+        '
+        Me.ndMins.Location = New System.Drawing.Point(136, 8)
+        Me.ndMins.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.ndMins.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.ndMins.Name = "ndMins"
+        Me.ndMins.Size = New System.Drawing.Size(56, 20)
+        Me.ndMins.TabIndex = 15
+        Me.ndMins.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ndMins.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.ndMins.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Location = New System.Drawing.Point(25, 10)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(105, 13)
+        Me.Label31.TabIndex = 13
+        Me.Label31.Text = "Mins between Loops"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.Location = New System.Drawing.Point(215, 10)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(46, 13)
+        Me.Label32.TabIndex = 16
+        Me.Label32.Text = "# Loops"
+        '
+        'ckbEnableLoops
+        '
+        Me.ckbEnableLoops.AutoSize = True
+        Me.ckbEnableLoops.Location = New System.Drawing.Point(428, 628)
+        Me.ckbEnableLoops.Name = "ckbEnableLoops"
+        Me.ckbEnableLoops.Size = New System.Drawing.Size(91, 17)
+        Me.ckbEnableLoops.TabIndex = 17
+        Me.ckbEnableLoops.Text = "Enable Loops"
+        Me.ckbEnableLoops.UseVisualStyleBackColor = True
+        '
+        'panLoops
+        '
+        Me.panLoops.Controls.Add(Me.Label31)
+        Me.panLoops.Controls.Add(Me.btnLoop)
+        Me.panLoops.Controls.Add(Me.Label32)
+        Me.panLoops.Controls.Add(Me.ndLoops)
+        Me.panLoops.Controls.Add(Me.ndMins)
+        Me.panLoops.Location = New System.Drawing.Point(531, 619)
+        Me.panLoops.Name = "panLoops"
+        Me.panLoops.Size = New System.Drawing.Size(430, 36)
+        Me.panLoops.TabIndex = 18
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(973, 639)
+        Me.ClientSize = New System.Drawing.Size(973, 659)
+        Me.Controls.Add(Me.panLoops)
+        Me.Controls.Add(Me.ckbEnableLoops)
         Me.Controls.Add(Me.lbHelp)
         Me.Controls.Add(Me.lbIPAddress)
         Me.Controls.Add(Me.ipSend)
@@ -1358,7 +1445,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.gbProgress)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(989, 678)
+        Me.MaximumSize = New System.Drawing.Size(1089, 778)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ethernet Emulator Deluxe"
@@ -1389,6 +1476,10 @@ Partial Class frmMain
         CType(Me.ndL3TBA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ndL4TimeOnHold, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ndL3TimeOnHold, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ndLoops, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ndMins, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panLoops.ResumeLayout(False)
+        Me.panLoops.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1498,4 +1589,11 @@ Partial Class frmMain
     Friend WithEvents Label14 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents ckbDups As CheckBox
+    Friend WithEvents btnLoop As Button
+    Friend WithEvents ndLoops As NumericUpDown
+    Friend WithEvents ndMins As NumericUpDown
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents ckbEnableLoops As CheckBox
+    Friend WithEvents panLoops As Panel
 End Class
